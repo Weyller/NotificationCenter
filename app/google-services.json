@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1014925954123",
+    "firebase_url": "https://contactform-4e160.firebaseio.com",
+    "project_id": "contactform-4e160",
+    "storage_bucket": "contactform-4e160.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014925954123:android:e5c1e8152387885d",
+        "android_client_info": {
+          "package_name": "ca.qc.lbpsb.fusion.fcmnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014925954123-0bjicf1t44ubk9sr8uo9vvkk5ffidaeo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9XDPJXooJ6cvYk8F_uQrnJ2GA3uZ37Ys"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
