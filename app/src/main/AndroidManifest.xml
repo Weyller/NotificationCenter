@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.qc.lbpsb.fusion.fcmnotification">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
 
-
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -30,6 +29,14 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".NotificationCenterActivity">
+            <intent-filter>
+                <action android:name="ca.qc.lbpsb.fusion.fcmnotification_TARGET_NOTIFICATION"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
