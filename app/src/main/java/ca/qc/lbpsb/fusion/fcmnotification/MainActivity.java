@@ -1,6 +1,7 @@
 package ca.qc.lbpsb.fusion.fcmnotification;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -153,5 +154,9 @@ public class MainActivity extends AppCompatActivity {
 
         FcmVolley.getInstance(this).addToRequestQueue(stringRequest);
        // Toast.makeText(MainActivity.this, "email registered", Toast.LENGTH_LONG).show();
+
+        // Go to Channel activity
+        Intent i = new Intent(this, ChannelsActivity.class);
+        startActivity(i);
     }
 }

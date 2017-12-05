@@ -32,11 +32,12 @@
 
         <activity android:name=".NotificationCenterActivity">
             <intent-filter>
-                <action android:name="ca.qc.lbpsb.fusion.fcmnotification_TARGET_NOTIFICATION"></action>
-                <category android:name="android.intent.category.DEFAULT"></category>
-            </intent-filter>
+                <action android:name="ca.qc.lbpsb.fusion.fcmnotification_TARGET_NOTIFICATION" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+        <activity android:name=".ChannelsActivity"></activity>
     </application>
 
 </manifest>

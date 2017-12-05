@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Fcm Notification</string>
+    <string name="user_intro">
+        Hello James, please select the types of notifications you wish to receive.
+    </string>
+
+    <string name="notif_fusion">
+        Notifies you when new features are released in Fusion.
+    </string>
+
+    <string name="notif_report">
+        Notifies you when your child\'s report cards become available online.
+    </string>
+
+    <string name="notif_school">
+        Notifies you of news and blog posts by your school.
+    </string>
+
+    <string name="notif_principals">
+        Notifies you when your child\'s principals send out communications.
+    </string>
+
+    <string name="notif_bus">
+        Notifies you about your kid bus planning and news.
+    </string>
+
+    <string name="notif_alumni">
+        Notifies you of news from the LPBSB alumni community.
+    </string>
+
 </resources>
