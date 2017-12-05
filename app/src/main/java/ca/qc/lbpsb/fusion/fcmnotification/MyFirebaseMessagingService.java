@@ -35,7 +35,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     //firebase cloud messaging
     private void sendPushNotification(JSONObject json) {
         //optionally we can display the json into log
-        Log.e(TAG, "Notification JSON " + json.toString());
+        Log.e(TAG, "Notifications JSON " + json.toString());
         try {
             //getting the json data
             JSONObject data = json.getJSONObject("data");

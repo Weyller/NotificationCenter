@@ -1,36 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="20dp"
-    android:paddingLeft="20dp"
+    android:background="@drawable/back2"
+    android:paddingLeft="35dp"
+    android:paddingRight="35dp"
+    android:orientation="vertical"
     tools:context="ca.qc.lbpsb.fusion.fcmnotification.MainActivity">
 
-    <EditText
-        android:layout_above="@+id/register"
-        android:hint="Enter email"
-        android:id="@+id/editTextEmail"
-        android:inputType="textEmailAddress"
+       <!--top logo and tittle-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical">
 
-    <Button
-        android:layout_centerVertical="true"
-        android:text="Register Device"
-        android:id="@+id/register"
-        android:onClick="sendToken"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:src="@drawable/board_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="lbpsb fusion"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Android Notification Center"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <!--user selection -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="I am"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+            >
+
+            <Button
+                android:id="@+id/btnParent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                android:text="Parent"
+                android:onClick="toggleUser"
+                android:textAllCaps="false"
+                android:textColor="#31455e"
+                android:textSize="16sp"></Button>
+
+            <Button
+                android:id="@+id/btnEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button_trans"
+                android:text="Employee"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"></Button>
+
+        </LinearLayout>
+
+
+        <!--user input for login -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Email"
+                android:textColor="@android:color/white" />
+
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="#b4c5d1"
+                android:ems="10"
+                android:hint="Email"
+                android:padding="8dp"
+                android:inputType="textEmailAddress"
+                android:textColor="#888" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Password"
+                android:textColor="@android:color/white" />
+
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="#b4c5d1"
+                android:padding="8dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="#888" />
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/flat_button"
+                android:text="Login"
+                android:onClick="sendToken"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"></Button>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <!--<Button-->
-        <!--android:text="Send Notification"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/register"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:id="@+id/buttonSendNotification" />-->
+    <!--android:text="SNotificationstion"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/register"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:id="@+id/buttonSendNotification" />-->
 
-</RelativeLayout>
+</LinearLayout>

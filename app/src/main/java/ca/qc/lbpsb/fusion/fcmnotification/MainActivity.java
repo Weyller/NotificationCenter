@@ -1,6 +1,7 @@
 package ca.qc.lbpsb.fusion.fcmnotification;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    private  Button btnParent, btnEmployee;
     private Button register;
     private EditText editTextEmail;
     private ProgressDialog progressDialog;
@@ -33,8 +35,58 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle("Fusion Notification");
+
         editTextEmail =  findViewById(R.id.editTextEmail);
         register =  findViewById(R.id.register);
+
+        btnParent = (Button)findViewById(R.id.btnParent);
+        btnEmployee = (Button)findViewById(R.id.btnEmployee);
+        //----------------------------------------------
+
+        btnParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                toogleBgButton(view);
+            }
+        });
+        btnEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                toogleBgButton(view);
+            }
+        });
+
+
+    }
+
+    private void toogleBgButton(View v) {
+
+
+
+        switch (v.getId()){
+
+            case R.id.btnEmployee:
+                Toast.makeText(this,"Employee",Toast.LENGTH_LONG).show();
+                btnParent.setBackgroundResource(R.drawable.round_button_trans);
+                btnParent.setTextColor(Color.WHITE);
+                btnEmployee.setBackgroundResource(R.drawable.round_button);
+                btnEmployee.setTextColor(Color.rgb(62,81,102));
+                setTitle("Employee Fusion Notification");
+                break;
+
+            case R.id.btnParent:
+                Toast.makeText(this,"Parent",Toast.LENGTH_LONG).show();
+                btnEmployee.setBackgroundResource(R.drawable.round_button_trans);
+                btnEmployee.setTextColor(Color.WHITE);
+                btnParent.setBackgroundResource(R.drawable.round_button);
+                btnParent.setTextColor(Color.rgb(62,81,102));
+                setTitle("Parent Fusion Notification");
+                break;
+        }
+
     }
 
     public void sendToken(View view) {
@@ -74,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                            JSONObject obj = new JSONObject(response);
 
                            Toast.makeText(MainActivity.this, obj.getString("message"), Toast.LENGTH_LONG).show();
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -84,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
+                        Log.e("TAG_ERROR_MESSAGE", "message string: " + error.getMessage());
                         Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }) {
