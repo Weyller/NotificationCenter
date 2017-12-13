@@ -3,6 +3,7 @@ package ca.qc.lbpsb.fusion.fcmnotification;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,12 +25,17 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.qc.lbpsb.fusion.fcmnotification.Model.User;
+import ca.qc.lbpsb.fusion.fcmnotification.Model.UserType;
+
 public class MainActivity extends AppCompatActivity {
 
     private  Button btnParent, btnEmployee;
     private Button register;
     private EditText editTextEmail;
     private ProgressDialog progressDialog;
+
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //--------------------------------------------------------------
     private void toogleBgButton(View v) {
 
 
@@ -76,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
                 btnEmployee.setBackgroundResource(R.drawable.round_button);
                 btnEmployee.setTextColor(Color.rgb(62,81,102));
                 setTitle("Employee Fusion Notification");
+
+                // set USER.TYPE
+               UserType type = UserType.EMPLOYEE;
+
+               user = new User();
+               user.setType(type);
+
                 break;
 
             case R.id.btnParent:
@@ -85,11 +99,18 @@ public class MainActivity extends AppCompatActivity {
                 btnParent.setBackgroundResource(R.drawable.round_button);
                 btnParent.setTextColor(Color.rgb(62,81,102));
                 setTitle("Parent Fusion Notification");
+
+                // set USER.TYPE
+                type = UserType.PARENT;
+
+                user = new User();
+                user.setType(type);
                 break;
         }
 
     }
 
+    //-----------------------------------------------------------------------------
     public void sendToken(View view) {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Registering Device...");
@@ -156,7 +177,20 @@ public class MainActivity extends AppCompatActivity {
        // Toast.makeText(MainActivity.this, "email registered", Toast.LENGTH_LONG).show();
 
         // Go to Channel activity
-        Intent i = new Intent(this, ChannelsActivity.class);
-        startActivity(i);
+        // if User.type = Parent
+        if(user.getType().equals(UserType.PARENT)){
+
+            // Go to Parent Channel activity
+            Intent i = new Intent(this, ChannelsActivity.class);
+            startActivity(i);
+
+        } else {
+            // Go to Employee Channel activity
+            Intent i = new Intent(this, ChannelsActivity.class);
+            //startActivity(i);
+        }
+
+
+
     }
 }

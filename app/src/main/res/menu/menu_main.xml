@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ChannelsActivity">
+
+
+
+    <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/board_logo"
+        android:title="More"
+        android:orderInCategory="100"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/action_1"
+                android:icon="@drawable/ic_notify"
+                android:title="View Notifications"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_2"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
+
+        </menu>
+
+
+
+    </item>
+
+
+
+
+
+
+
+    <!--<item  android:id="@+id/item1"-->
+        <!--android:icon="@drawable/ic_notify"-->
+
+        <!--app:showAsAction="always|withText"-->
+        <!--android:title="View Notifications"/>-->
+    <!--<item  android:id="@+id/item2"-->
+
+        <!--app:showAsAction="always|withText"-->
+        <!--android:icon="@drawable/ic_logout"-->
+        <!--android:title="Logout"/>-->
+
+</menu>

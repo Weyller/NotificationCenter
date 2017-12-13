@@ -7,6 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.ParseException;
+import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.text.Html;
 
@@ -14,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by delaroy on 10/8/17.
@@ -41,19 +46,24 @@ public class MyNotificationManager {
                         intent,
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
+        long[] vibrate = new long[] { 600, 600, 600, 600, 600 };
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
         bigPictureStyle.setBigContentTitle(title);
         bigPictureStyle.setSummaryText(Html.fromHtml(message).toString());
         bigPictureStyle.bigPicture(getBitmapFromURL(url));
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mCtx);
         Notification notification;
-        notification = mBuilder.setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
+        notification = mBuilder.setSmallIcon(R.mipmap.ic_launch_lbpsb).setTicker(title).setWhen(0)
                 .setAutoCancel(true)
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle(title)
                 .setStyle(bigPictureStyle)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
+                .setWhen((new Date().getTime()))
+                .setSmallIcon(R.mipmap.ic_launch_lbpsb)
+                .setVibrate(vibrate)
+                .setSound(defaultSoundUri)
+                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launch_lbpsb))
                 .setContentText(message)
                 .build();
 
@@ -75,15 +85,19 @@ public class MyNotificationManager {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
 
-
+        long[] vibrate = new long[] { 600, 600, 600, 600, 600 };
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mCtx);
         Notification notification;
-        notification = mBuilder.setSmallIcon(R.mipmap.ic_launcher).setTicker(title).setWhen(0)
+        notification = mBuilder.setSmallIcon(R.mipmap.ic_launch_lbpsb).setTicker(title).setWhen(0)
                 .setAutoCancel(true)
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle(title)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.mipmap.ic_launch_lbpsb)
+                .setWhen((new Date().getTime()))
+                .setVibrate(vibrate)
+                .setSound(defaultSoundUri)
+                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launch_lbpsb))
                 .setContentText(message)
                 .build();
 
@@ -108,4 +122,21 @@ public class MyNotificationManager {
             return null;
         }
     }
+
+    public static long getTimeMilliSec(String timeStamp) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date date = null;
+            try {
+                date = format.parse(timeStamp);
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
+            }
+            return date.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

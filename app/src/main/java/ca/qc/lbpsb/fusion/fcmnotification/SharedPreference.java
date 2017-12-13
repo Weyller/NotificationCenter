@@ -1,8 +1,14 @@
 package ca.qc.lbpsb.fusion.fcmnotification;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by delaroy on 10/8/17.
@@ -14,6 +20,9 @@ public class SharedPreference {
 
     private static final String SHARED_PREF_ID = "IDSharedPref";
     private static final String TAG_ID = "tagID";
+
+    private static final String SHARED_PREF_LIST = "LISTSharedPref";
+    private static final String TAG_LIST = "tagLIST";
 
     private static SharedPreference mInstance;
     private static Context mCtx;
@@ -53,7 +62,7 @@ public class SharedPreference {
     public boolean saveDeviceId(String id){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(TAG_TOKEN, id);
+        editor.putString(TAG_ID, id);
         editor.apply();
 
 
@@ -67,6 +76,49 @@ public class SharedPreference {
         return  sharedPreferences.getString(TAG_ID, null);
     }
 
+    //----------------------------------------------------------------
+
+    //this method will save the of notification channels to shared preferences
+    public static void setSharedPreferenceStringList(String pKey, List<String> pData) {
+        SharedPreferences.Editor editor = mCtx.getSharedPreferences(SHARED_PREF_LIST, Context.MODE_PRIVATE).edit();
+        editor.putInt(pKey + "size", pData.size());
+        editor.apply();
+
+        for (int i = 0; i < pData.size(); i++) {
+            SharedPreferences.Editor editor1 = mCtx.getSharedPreferences(SHARED_PREF_LIST, Context.MODE_PRIVATE).edit();
+            editor1.putString(pKey + i, (pData.get(i)));
+            editor1.apply();
+        }
+        Log.d(TAG_LIST, "channel: " + pKey);
+    }
+
+
+    //this method will remove the of notification channels to shared preferences
+    public static void removeSharedPreferenceStringList(String pKey, List<String> pData) {
+        SharedPreferences.Editor editor = mCtx.getSharedPreferences(SHARED_PREF_LIST, Context.MODE_PRIVATE).edit();
+        editor.remove(pKey );
+        editor.apply();
+
+        for (int i = 0; i < pData.size(); i++) {
+            SharedPreferences.Editor editor1 = mCtx.getSharedPreferences(SHARED_PREF_LIST, Context.MODE_PRIVATE).edit();
+            editor1.remove(pKey);
+            editor1.apply();
+        }
+
+    }
+
+
+
+    //this method will fetch the device id from shared preferences
+
+    public static List<String> getSharedPreferenceStringList() {
+        int size = mCtx.getSharedPreferences(SHARED_PREF_LIST, Context.MODE_PRIVATE).getInt(TAG_LIST + "size", 0);
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            list.add(mCtx.getSharedPreferences(SHARED_PREF_LIST, Context.MODE_PRIVATE).getString(TAG_LIST + i, ""));
+        }
+        return list;
+    }
 
 
 }

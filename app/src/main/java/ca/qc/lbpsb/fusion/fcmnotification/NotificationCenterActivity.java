@@ -1,6 +1,7 @@
 package ca.qc.lbpsb.fusion.fcmnotification;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -75,7 +76,8 @@ public class NotificationCenterActivity extends AppCompatActivity {
 
         final String token = SharedPreference.getInstance(this).getDeviceToken();
 
-        load_data_from_server(token);
+        //===============================================
+       // load_data_from_server(token);
 
         gridLayoutManager = new GridLayoutManager(this,1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -94,16 +96,24 @@ public class NotificationCenterActivity extends AppCompatActivity {
             }
         });
 
-
-
         //this method will fetch and parse json
         //to display it in recyclerview
 
        // loadMessages();
 
+        // Load webview activity
+        loadWebView();
 
 
     }
+
+    //------------------------------------------------------
+
+    private void loadWebView() {
+        Intent intent = new Intent(this, WebviewActivity.class);
+        startActivity(intent);
+    }
+
 
     //------------------------------------------------------
 
