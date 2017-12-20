@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ChannelsActivity">
+    tools:context=".ChannelsActivity_Parent">
 
 
 
     <item
         android:id="@+id/action_more"
-        android:icon="@drawable/board_logo"
+        android:icon="@drawable/ic_menu_black_24dp"
         android:title="More"
         android:orderInCategory="100"
         app:showAsAction="always">

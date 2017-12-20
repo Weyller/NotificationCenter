@@ -1,38 +1,33 @@
 package ca.qc.lbpsb.fusion.fcmnotification;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.zookey.universalpreferences.UniversalPreferences;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ChannelsActivity extends AppCompatActivity {
+import ca.qc.lbpsb.fusion.fcmnotification.Manager.SharedPreference;
 
-    Switch sw_fusion, sw_report, sw_news, sw_principals, sw_bus, sw_alumni;
+public class ChannelsActivity_Employee extends AppCompatActivity {
 
-    LinearLayout ln_fusion, ln_report, ln_news, ln_principal, ln_bus, ln_alumni;
+    Switch sw_fusion, sw_hr, sw_social, sw_chairman,   sw_alumni;
+
+    LinearLayout ln_fusion, ln_social, ln_hr, ln_chairman,  ln_alumni;
     LinearLayout linearLayout[];
 
 
@@ -41,33 +36,55 @@ public class ChannelsActivity extends AppCompatActivity {
 
     final String LOG_SWITCH = "LOG_SWITCH";
 
-    final int CHANNEL_NUMBER = 6;
+    final String EMPLOYEE_CHANNELS_SET = "EMPLOYEE CHANNELS";
+
+    final int CHANNEL_NUMBER = 5;
 
     List<String> list_id_channel;
+
+    TextView textViewIntro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_channels);
+        setContentView(R.layout.activity_channels_employee);
 
         // Universal shared preference
         UniversalPreferences.initialize(this);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            Log.e("LOG_CURRENT_USER_TYPE", "No user found " );
+            return;
+        }
+        // get data via the key
+        String userType = extras.getString("user_employee");
+
+        if (userType != null) {
+            // do something with the data
+
+            Log.e("LOG_CURRENT_USER_TYPE", "user type " + userType );
+
+        }
+
+        final String firstName = SharedPreference.getInstance(this).getFirstName();
+        textViewIntro = findViewById(R.id.txtUserIntro);
+        textViewIntro.setText("Hello " + firstName.toUpperCase()  + ", please select the types of notifications you wish to receive.");
+        //------------------------------------------------------
+
         sw_fusion = findViewById(R.id.sw_fusion);
 
-        setTitle("Notification Center");
+        setTitle("Employee Notifications");
 
-        sw_report = findViewById(R.id.sw_report);
-        sw_news = findViewById(R.id.sw_news);
-        sw_principals = findViewById(R.id.sw_principales);
-        sw_bus = findViewById(R.id.sw_bus);
+        sw_social = findViewById(R.id.sw_social);
+        sw_hr = findViewById(R.id.sw_hr);
+        sw_chairman = findViewById(R.id.sw_chairman);
         sw_alumni = findViewById(R.id.sw_alumni);
 
         ln_fusion = findViewById(R.id.linear_update);
-        ln_report = findViewById(R.id.linear_report);
-        ln_news = findViewById(R.id.linear_school);
-        ln_principal = findViewById(R.id.linear_principal);
-        ln_bus = findViewById(R.id.linear_bus);
+        ln_social = findViewById(R.id.linear_social);
+        ln_hr = findViewById(R.id.linear_hr);
+        ln_chairman = findViewById(R.id.linear_chairman);
         ln_alumni = findViewById(R.id.linear_alumni);
 
 
@@ -76,11 +93,10 @@ public class ChannelsActivity extends AppCompatActivity {
         channelSwitch = new Switch[CHANNEL_NUMBER];
 
         channelSwitch[0] = sw_fusion;
-        channelSwitch[1] = sw_report;
-        channelSwitch[2] = sw_news;
-        channelSwitch[3] = sw_principals;
-        channelSwitch[4] = sw_bus;
-        channelSwitch[5] = sw_alumni;
+        channelSwitch[1] = sw_social;
+        channelSwitch[2] = sw_hr;
+        channelSwitch[3] = sw_chairman;
+        channelSwitch[4] = sw_alumni;
 
         // User channels list from DB
         //----------------------------------------------
@@ -118,11 +134,10 @@ public class ChannelsActivity extends AppCompatActivity {
         linearLayout = new LinearLayout[CHANNEL_NUMBER];
 
         linearLayout[0] = ln_fusion;
-        linearLayout[1] = ln_report;
-        linearLayout[2] = ln_news;
-        linearLayout[3] = ln_principal;
-        linearLayout[4] = ln_bus;
-        linearLayout[5] = ln_alumni;
+        linearLayout[1] = ln_social;
+        linearLayout[2] = ln_hr;
+        linearLayout[3] = ln_chairman;
+        linearLayout[4] = ln_alumni;
 
 
         for (int i = 0; i < linearLayout.length; i++) {
@@ -166,7 +181,7 @@ public class ChannelsActivity extends AppCompatActivity {
 
 
 
-                            Log.e("LOG_CHANNELS", "Channel list " + list_id_channel.toString());
+                            Log.e("LOG_CHANNELS_EMPLOYEE", "Channel list " + list_id_channel.toString());
 
                         }
                     }
@@ -185,7 +200,7 @@ public class ChannelsActivity extends AppCompatActivity {
         list_id_channel.add(channel);
         set.addAll(list_id_channel);
 
-        UniversalPreferences.getInstance().put("set", set);
+        UniversalPreferences.getInstance().put(EMPLOYEE_CHANNELS_SET, set);
 
     }
 
@@ -195,13 +210,13 @@ public class ChannelsActivity extends AppCompatActivity {
         list_id_channel.remove(channel);
         set.addAll(list_id_channel);
 
-        UniversalPreferences.getInstance().put("set", set);
+        UniversalPreferences.getInstance().put(EMPLOYEE_CHANNELS_SET, set);
 
     }
 
     private List<String> getStoreChannelList() {
         //retreive the channels from shared preferences
-        Set<String> savedSet = UniversalPreferences.getInstance().get("set",new HashSet<String>());
+        Set<String> savedSet = UniversalPreferences.getInstance().get(EMPLOYEE_CHANNELS_SET,new HashSet<String>());
         // Log.e("LOG_CHANNELS_LIST", "Channel set " + savedSet.toString());
         List<String> savedList = new ArrayList<String>(savedSet);
 
@@ -228,8 +243,9 @@ public class ChannelsActivity extends AppCompatActivity {
 
 
             case R.id.action_1:
-                Intent intent = new Intent(ChannelsActivity.this, WebviewActivity.class);
+                Intent intent = new Intent(ChannelsActivity_Employee.this, WebviewActivity.class);
                 startActivity(intent);
+                break;
 
             case R.id.action_2:
                   Toast.makeText(getApplicationContext(),"Logging out",Toast.LENGTH_LONG).show();
@@ -237,7 +253,12 @@ public class ChannelsActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+        return false;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }
 

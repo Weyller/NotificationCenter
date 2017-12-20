@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
@@ -17,8 +16,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.qc.lbpsb.fusion.fcmnotification.Adapter.NotificationsAdapter;
+import ca.qc.lbpsb.fusion.fcmnotification.Manager.SharedPreference;
+import ca.qc.lbpsb.fusion.fcmnotification.Model.Constants;
 import ca.qc.lbpsb.fusion.fcmnotification.Model.Notifications;
 import okhttp3.OkHttpClient;
 

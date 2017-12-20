@@ -1,4 +1,4 @@
-package ca.qc.lbpsb.fusion.fcmnotification;
+package ca.qc.lbpsb.fusion.fcmnotification.Manager;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -19,6 +19,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import ca.qc.lbpsb.fusion.fcmnotification.R;
 
 /**
  * Created by delaroy on 10/8/17.

@@ -1,9 +1,23 @@
 <resources>
-    <string name="app_name">Fcm Notification</string>
+    <string name="app_name">Fusion Notification</string>
     <string name="user_intro">
         Hello James, please select the types of notifications you wish to receive.
     </string>
 
+    <!-- titles - -->
+    <string name="fusion"> Fusion Updates</string>
+    <string name="report"> New Report Card</string>
+    <string name="school"> School News</string>
+    <string name="principal"> Message From Principals</string>
+    <string name="busing"> Busing News</string>
+    <string name="alumni"> LBPSB Alumni</string>
+
+    <string name="social"> Social Committee</string>
+    <string name="hr"> Humain Ressources</string>
+    <string name="chairman"> Message from our Chairperson</string>
+
+
+    <!--description-->
     <string name="notif_fusion">
         Notifies you when new features are released in Fusion.
     </string>
@@ -21,11 +35,22 @@
     </string>
 
     <string name="notif_bus">
-        Notifies you about your kid bus planning and news.
+        Notifies you about your kid busing.
     </string>
 
     <string name="notif_alumni">
         Notifies you of news from the LPBSB alumni community.
     </string>
 
+    <string name="notif_social">
+        Notifies you of news from the LPBSB social committee.
+    </string>
+
+    <string name="notif_hr">
+        Notifies you of news from the LPBSB humain ressources team.
+    </string>
+
+    <string name="notif_chairman">
+        Notifies you of news from the LPBSB chairperson.
+    </string>
 </resources>

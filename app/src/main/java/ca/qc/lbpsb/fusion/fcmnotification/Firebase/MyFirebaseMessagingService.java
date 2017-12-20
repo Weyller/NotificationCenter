@@ -1,4 +1,4 @@
-package ca.qc.lbpsb.fusion.fcmnotification;
+package ca.qc.lbpsb.fusion.fcmnotification.Firebase;
 
 import android.content.Intent;
 import android.util.Log;
@@ -9,8 +9,10 @@ import com.google.firebase.messaging.RemoteMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ca.qc.lbpsb.fusion.fcmnotification.Manager.MyNotificationManager;
+
 /**
- * Created by delaroy on 10/8/17.
+ * Created by w.desir on 12/1/2017.
  */
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {

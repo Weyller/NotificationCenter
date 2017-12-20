@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launch_lbpsb"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launch_lbpsb_round"
         android:supportsRtl="true"
@@ -19,26 +19,33 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyFirebaseInstanceIDService">
+        <service android:name=".Firebase.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".MyFirebaseMessagingService">
+        <service android:name=".Firebase.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".NotificationCenterActivity">
+        <activity android:name=".WebviewActivity"
+                  android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="ca.qc.lbpsb.fusion.fcmnotification_TARGET_NOTIFICATION" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChannelsActivity" />
-        <activity android:name=".WebviewActivity"></activity>
+        <activity android:name=".ChannelsActivity_Parent"
+                  android:logo="@drawable/board_logo"
+                  android:launchMode="singleTop"
+                  android:alwaysRetainTaskState="true"/>
+        <activity android:name=".ChannelsActivity_Employee"
+                  android:launchMode="singleTop"
+                  android:alwaysRetainTaskState="true"/>
+
     </application>
 
 </manifest>

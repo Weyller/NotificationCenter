@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="ca.qc.lbpsb.fusion.fcmnotification.ChannelsActivity_Parent">
+    tools:context="ca.qc.lbpsb.fusion.fcmnotification.ChannelsActivity_Employee">
     <LinearLayout
 
         android:layout_width="match_parent"
@@ -43,8 +43,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="62dp"
                     android:layout_marginTop="30dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="@dimen/pad"
+                    android:paddingRight="@dimen/pad"
                     android:text="@string/user_intro"
                     android:textAlignment="center"
                     android:textColor="#333"
@@ -57,7 +57,7 @@
                     android:textColor="#333" />
             </LinearLayout>
 
-            <!--center user channels -->
+            <!--Wrapper user channels -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -130,14 +130,14 @@
 
                 </LinearLayout>
 
-                <!--FUSION REPORT CARDS LAYOUT-->
+                <!--SOCIAL CARDS LAYOUT-->
                 <LinearLayout
-                    android:id="@+id/linear_report"
+                    android:id="@+id/linear_social"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBack"
                     android:orientation="vertical"
-                    android:tag="report_cards"
+                    android:tag="social_news"
                     android:clickable="true"
                     android:focusable="true"
                     android:paddingLeft="@dimen/pad"
@@ -153,7 +153,7 @@
                         android:orientation="horizontal">
 
                         <Switch
-                            android:id="@+id/sw_report"
+                            android:id="@+id/sw_social"
                             android:layout_width="70dp"
                             android:checked="false"
                             android:tag="2"
@@ -167,7 +167,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
-                            android:text="@string/report"
+                            android:text="@string/social"
                             android:textColor="#000"
                             android:textSize="20sp" />
 
@@ -185,14 +185,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="@color/color_txt"
-                            android:text="@string/notif_report" />
+                            android:text="@string/notif_social" />
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!--FUSION NEWS LAYOUT-->
+                <!--FUSION HR LAYOUT-->
                 <LinearLayout
-                    android:id="@+id/linear_school"
+                    android:id="@+id/linear_hr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBack"
@@ -213,7 +213,7 @@
                         android:layout_height="match_parent">
 
                         <Switch
-                            android:id="@+id/sw_news"
+                            android:id="@+id/sw_hr"
                             android:layout_width="62dp"
                             android:checked="false"
                             android:tag="3"
@@ -228,7 +228,7 @@
 
                             android:layout_weight="5"
 
-                            android:text="@string/school"
+                            android:text="@string/hr"
 
                             android:textColor="#000"
                             android:textSize="20sp" />
@@ -247,24 +247,25 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="@color/color_txt"
-                            android:text="@string/notif_school" />
+                            android:text="@string/notif_hr" />
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!--FUSION PRINCIPALE LAYOUT-->
+
+                <!--FUSION CHAIRPERSON LAYOUT-->
                 <LinearLayout
-                    android:id="@+id/linear_principal"
+                    android:id="@+id/linear_chairman"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBack"
-                    android:layout_marginBottom="2dp"
-                    android:tag="principal_messages"
+                    android:orientation="vertical"
+                    android:tag="chairman"
                     android:clickable="true"
                     android:focusable="true"
                     android:paddingLeft="@dimen/pad"
                     android:paddingRight="@dimen/pad"
-                    android:orientation="vertical"
+                    android:layout_marginBottom="2dp"
                     android:weightSum="6">
 
                     <LinearLayout
@@ -275,8 +276,8 @@
                         android:layout_height="match_parent">
 
                         <Switch
-                            android:id="@+id/sw_principales"
-                            android:layout_width="87dp"
+                            android:id="@+id/sw_chairman"
+                            android:layout_width="65dp"
                             android:checked="false"
                             android:clickable="false"
                             android:tag="4"
@@ -290,7 +291,7 @@
 
                             android:layout_weight="5"
 
-                            android:text="@string/principal"
+                            android:text="@string/chairman"
 
                             android:textColor="#000"
                             android:textSize="20sp" />
@@ -309,69 +310,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="@color/color_txt"
-                            android:text="@string/notif_principals" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!--FUSION BUS LAYOUT-->
-                <LinearLayout
-                    android:id="@+id/linear_bus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorBack"
-                    android:orientation="vertical"
-                    android:tag="busing"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:paddingLeft="@dimen/pad"
-                    android:paddingRight="@dimen/pad"
-                    android:layout_marginBottom="2dp"
-                    android:weightSum="6">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-
-                        android:layout_marginBottom="@dimen/margin"
-                        android:layout_height="match_parent">
-
-                        <Switch
-                            android:id="@+id/sw_bus"
-                            android:layout_width="65dp"
-                            android:checked="false"
-                            android:clickable="false"
-                            android:tag="5"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <TextView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:layout_weight="5"
-
-                            android:text="@string/busing"
-
-                            android:textColor="#000"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:paddingLeft="@dimen/pad"
-                        android:paddingRight="@dimen/pad"
-                        >
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textColor="@color/color_txt"
-                            android:text="@string/notif_bus" />
+                            android:text="@string/notif_chairman" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -403,7 +342,7 @@
                             android:layout_width="70dp"
                             android:checked="false"
                             android:clickable="false"
-                            android:tag="6"
+                            android:tag="5"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 

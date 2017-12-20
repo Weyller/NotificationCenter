@@ -1,4 +1,4 @@
-package ca.qc.lbpsb.fusion.fcmnotification;
+package ca.qc.lbpsb.fusion.fcmnotification.Manager;
 
 import android.content.Context;
 

@@ -1,12 +1,14 @@
-package ca.qc.lbpsb.fusion.fcmnotification;
+package ca.qc.lbpsb.fusion.fcmnotification.Firebase;
 
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
+import ca.qc.lbpsb.fusion.fcmnotification.Manager.SharedPreference;
+
 /**
- * Created by delaroy on 10/8/17.
+ * Created by w.desir on 12/1/2017.
  */
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {

@@ -1,16 +1,26 @@
 package ca.qc.lbpsb.fusion.fcmnotification.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by w.desir on 12/13/2017.
  */
 
-public class User {
+public class User implements Serializable {
+
+
+    private static final long serialVersionUID = 1L;
 
     String email;
     String password;
     UserType type;
 
     public User() {
+    }
+
+    public User(UserType type) {
+
+        this.type = type;
     }
 
     public User(String email, String password, UserType type) {
@@ -48,7 +58,7 @@ public class User {
         return "User{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", type=" + type +
+                ", type=" + String.valueOf(type) +
                 '}';
     }
 }
