@@ -5,13 +5,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/back"
     tools:context="ca.qc.lbpsb.fusion.fcmnotification.MainActivity"
     >
 <LinearLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
+
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
 

@@ -222,7 +222,7 @@ public class NotificationCenterActivity extends AppCompatActivity {
                                         notification.getString("image")
                                 ));
                             }
-
+//
                             //creating adapter object and setting it to recyclerview
                            adapter = new NotificationsAdapter(NotificationCenterActivity.this, itemList);
                             recyclerView.setAdapter(adapter);

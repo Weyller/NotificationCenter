@@ -30,12 +30,12 @@ public class WebviewActivity extends AppCompatActivity {
         Log.e("WEB_LOGIN_TOKEN", "web login token " + loginToken );
         Log.e("WEB_LOGIN_USERNAME", "web username " + username );
 
-      // webView.loadUrl("https://fusion-dev.lbpsb.qc.ca/external-login/"+username+"/"+loginToken);
+      webView.loadUrl("https://fusion-dev.lbpsb.qc.ca/external-login/"+username+"/"+loginToken);
 
 
 
         Log.e("WEB_LOGIN_URL", "web URL " + "https://fusion-dev.lbpsb.qc.ca/external-login/"+username+"/"+loginToken );
-        webView.loadUrl("https://fusion-dev.lbpsb.qc.ca/external-login/weyller_parent21126/36sjG5n3DBj50NuBXNLDyas8RsnnvLKtyw8FNalp5DZOi9Pjk7");
+      //  webView.loadUrl("https://fusion-dev.lbpsb.qc.ca/external-login/weyller_parent21126/36sjG5n3DBj50NuBXNLDyas8RsnnvLKtyw8FNalp5DZOi9Pjk7");
        //  webView.loadUrl("https://sso.lbpsb.qc.ca");
         finish();
 

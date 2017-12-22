@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="pad">30dp</dimen>
+    <dimen name="margin_land">35dp</dimen>
     <dimen name="margin">20dp</dimen>
     <dimen name="text_size_title">48sp</dimen>
 
